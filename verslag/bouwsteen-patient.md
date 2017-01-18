@@ -1,17 +1,11 @@
-ajksdflkd fasdfkjahsdflkj
+# Patient
 
-
-
-sdfa
-
-|  |  |
+| [ZIB Patient](https://zibs.nl/wiki/Patient(NL) | FHIR |
 | :--- | :--- |
-| asdkjfhs | asdfjhads |
+| PatientIdentificatieNummer |  |
 |  |  |
-
-
 
 [dit is de tekst](http://kapitan.net)
 
-
 dit heb ik online geedit
+
