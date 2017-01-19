@@ -1,6 +1,4 @@
 {
-    "root": "./verslag",
-    
     "plugins": [
         "search-languages"
     ],
@@ -10,5 +8,6 @@
             "ignoreSpecialCharacters": false,
             "lang": "du"
         }
-    }
+    },
+    "root": "./verslag"
 }
