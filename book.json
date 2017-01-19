@@ -1,3 +1,14 @@
 {
-    "root": "./verslag"
+    "root": "./verslag",
+    
+    "plugins": [
+        "search-languages"
+    ],
+    "pluginsConfig": {
+        "search-languages": {
+            "maxIndexSize": 1000000,
+            "ignoreSpecialCharacters": false,
+            "lang": "du"
+        }
+    }
 }
