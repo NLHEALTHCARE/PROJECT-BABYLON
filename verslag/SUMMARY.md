@@ -3,8 +3,8 @@
 * [Inleiding](README.md)
 * [Methode](/methode.md)
 * [Resultaten](/resultaten.md)
-* [Discussie](/discussie.md)
 * [Bouwsteen: patient](/bouwsteen/bouwsteen-patient.md)
+* [Discussie](/discussie.md)
 * [Conclusie](/conclusie.md)
 
 
