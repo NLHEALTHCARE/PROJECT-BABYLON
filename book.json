@@ -1,5 +1,4 @@
 {
-    "root": "./verslag"
+    "root": "./verslag",
+    "language": "nl"
 }
-
-{ "language": "nl" }
