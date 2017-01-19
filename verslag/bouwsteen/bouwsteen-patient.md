@@ -1,6 +1,6 @@
 # Patient
 
-| [ZIB Patient](https://zibs.nl/wiki/Patient(NL) | FHIR |
+| [ZIB Patient](https://zibs.nl/wiki/Patient(NL) | [FHIR](https://www.hl7.org/fhir/patient.html) |
 | :--- | :--- |
 | PatientIdentificatieNummer |  |
 |  |  |
