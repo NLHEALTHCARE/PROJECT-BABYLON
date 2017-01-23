@@ -6,7 +6,7 @@
 | Geboortedatum | birthDate |
 | Geslacht | Gender |
 | Meerling | multipleBirth |
-| Naamgegevens | Name |
+| Naamgegevens \[[1](/bouwsteen/patient/patient-concepten.md)\] | Name |
 |AdresGegevens  | address |
 | ContactGegevens | contact |
 | OverlijdingsIndicator | deceased |
