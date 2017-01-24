@@ -2,26 +2,29 @@
 
 ### Naamgegevens
 
-| [ZIB onderdeel Naamgegevens](https://zibs.nl/wiki/Patient(NL) | [FHIR Name](https://www.hl7.org/fhir/datatypes.html#HumanName) |
+| [ZIB Concept Naamgegevens](https://zibs.nl/wiki/Patient(NL) | [FHIR Name](https://www.hl7.org/fhir/datatypes.html#HumanName) |
 | :--- | :--- |
 | Voornaam | given |
 | Initialen | given |
 | Roepnaam | given |
 | Naamgebruik | use |
 | Geslachtsnaam | family |
-| GeslachtsnaamPartner |  |
-| - | Period |
+| GeslachtsnaamPartner | contact\* |
+| - (weglaten want ZIB met FHIR vergelijken en niet anddersom) | Period |
 
-#### Geslachtsnaam
+\* Staat bij de Resource Patient als onderdeel.
 
-| [ZIB Onderdeel geslachtsnaam](https://zibs.nl/wiki/Patient(NL) | [FHIR patient](https://www.hl7.org/fhir/datatypes.html#HumanName) |
+* ##### Geslachtsnaam
+
+| [ZIB Concept geslachtsnaam](https://zibs.nl/wiki/Patient(NL) | [FHIR Name](https://www.hl7.org/fhir/datatypes.html#HumanName) |
 | :--- | :--- |
 | Voorvoegesels | family |
 | Achternaam | family |
 
-#### GeslachtsnaamPartner
 
-| [ZIB Onderdeel geslachtsnaampartner](https://zibs.nl/wiki/Patient(NL) | [FHIR Patient\(Contact\)](https://www.hl7.org/fhir/datatypes.html#HumanName)\* |
+* ##### GeslachtsnaamPartner
+
+| [ZIB Concept geslachtsnaampartner](https://zibs.nl/wiki/Patient(NL) | [FHIR Patient\(Contact/name\)](https://www.hl7.org/fhir/datatypes.html#HumanName)\* |
 | :--- | :--- |
 | VoorvoegeselsPartner | family |
 | Achternaampartner | family |
@@ -30,31 +33,44 @@
 
 ### AdresGegevens
 
-| [ZIB](https://zibs.nl/wiki/Patient(NL) | [FHIR](https://www.hl7.org/fhir/datatypes.html#HumanName) |
+| [ZIB Concept AdresGegevens](https://zibs.nl/wiki/Patient(NL) | [FHIR Address](https://www.hl7.org/fhir/datatypes.html#Address)|
 | :--- | :--- |
-| Voornaam | given |
-| Initialen | given |
-| Roepnaam | given |
-| Naamgebruik | use |
-| Geslachtsnaam | family |
-| GeslachtsnaamPartner | - |
-| - | Period |
+| Straat | line |
+| Huisnummer | line |
+| Huisnummerletter | line |
+| Huisnummertoevoeging | line |
+| AanduidingBijNummer | line |
+| Postcode | postalCode |
+| Woonplaats | city |
+| Gemeente | district |
+| Land | country |
+| AdditioneleInformatie |  |
+| AdresSoort | use |
 
 ###ContactGegevens
 
-| [ZIB Onderdeel ContactGegevens](https://zibs.nl/wiki/Patient(NL) | [FHIR Patient\(telecom\)](https://www.hl7.org/fhir/datatypes.html#HumanName)\* |
+| [ZIB Concept ContactGegevens](https://zibs.nl/wiki/Patient(NL) | [FHIR Patient\(telecom\)](https://www.hl7.org/fhir/datatypes.html#HumanName)\* |
 | :--- | :--- |
 | Telefoonnummers | telecom |
 | EmailAdressen | telecom |
 
 \* Valt onder het onderdeel 'telecom' bij Resource Patient. \(Via verwijzing of erachter met "\(\)"\)
+ 
 
-#### Telefoonnummers
+* ##### Telefoonnummers
 
-| [ZIB Onderdeel ContactGegevens](https://zibs.nl/wiki/Patient(NL) | [FHIR ContactPoint](https://www.hl7.org/fhir/datatypes.html#ContactPoint) |
+| [ZIB Concept ContactGegevens](https://zibs.nl/wiki/Patient(NL) | [FHIR ContactPoint](https://www.hl7.org/fhir/datatypes.html#ContactPoint) |
 | :--- | :--- |
-| Telefoonnummers | telecom |
-| EmailAdressen | telecom |
+| Telefoonnummers | value |
+| Nummersoort | use |
+
+
+* ##### EmailAdressen
+
+| [ZIB Concept ContactGegevens](https://zibs.nl/wiki/Patient(NL) | [FHIR ContactPoint](https://www.hl7.org/fhir/datatypes.html#ContactPoint) |
+| :--- | :--- |
+| EmailAdres | value |
+| EmailSoort | use |
 
 
 

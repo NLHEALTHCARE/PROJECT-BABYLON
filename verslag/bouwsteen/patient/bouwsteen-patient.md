@@ -15,24 +15,24 @@
 | ContactGegevens \[[3](/bouwsteen/patient/patient-concepten.md###ContactGegevens)\] | telecom |
 | OverlijdingsIndicator | deceased |
 | DatumOverlijden | deceased |
-\[#\] Bestaan uit meerdere onderdelen
+\[_#_\] Bestaan uit meerdere onderdelen
 
 
 ### Datatypen
-| Onderdeel | ZIB Patiënt | FHIR Patiënt |
+| Concept | ZIB Patiënt | FHIR Patiënt |
 | :--- | :--- | :--- |
-| PatientIdentificatieNummer |  |  |
-| Geboortedatum |  |  |
-| Geslacht |  |  |
-| Meerling |  |  |
-| Naamgegevens |  |  |
-| AdresGegevens |  |  |
-| ContactGegevens |  |  |
-| OverlijdingsIndicator |  |  |
-| DatumOverlijden |  |  |
+| PatientIdentificatieNummer | String | String |
+| Geboortedatum | Timestamp | date |
+| Geslacht | SNOMED-CT | Code |
+| Meerling | boolean | Boolean/Integer |
+| Naamgegevens | \[[1](/bouwsteen/patient/patient-concepten.md)\] |  |
+| AdresGegevens | \[[2](/bouwsteen/patient/patient-concepten.md)\] |  |
+| ContactGegevens | \[[3](/bouwsteen/patient/patient-concepten.md###ContactGegevens)\] |  |
+| OverlijdingsIndicator | Boolean | Boolean |
+| DatumOverlijden | Timestamp | dateTime |
 
 
-* Idee --> Concept onderdeel wat meerdere onderdelen bevat als link neerzetten en verwijzen naar andere pagina waar deze weer worden vergeleken.
+* Idee --> Concept wat meerdere onderdelen bevat als link neerzetten en verwijzen naar andere pagina waar deze weer worden vergeleken.
 
 [dit is de tekst](http://kapitan.net)
 
