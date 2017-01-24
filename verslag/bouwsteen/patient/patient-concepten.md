@@ -10,7 +10,7 @@
 | Naamgebruik | use |
 | Geslachtsnaam | family |
 | GeslachtsnaamPartner | contact\* |
-| - (weglaten want ZIB met FHIR vergelijken en niet anddersom) | Period |
+| - \(weglaten want ZIB met FHIR vergelijken en niet anddersom\) | Period |
 
 \* Staat bij de Resource Patient als onderdeel.
 
@@ -20,7 +20,6 @@
 | :--- | :--- |
 | Voorvoegesels | family |
 | Achternaam | family |
-
 
 * ##### GeslachtsnaamPartner
 
@@ -33,7 +32,7 @@
 
 ### AdresGegevens
 
-| [ZIB Concept AdresGegevens](https://zibs.nl/wiki/Patient(NL) | [FHIR Address](https://www.hl7.org/fhir/datatypes.html#Address)|
+| [ZIB Concept AdresGegevens](https://zibs.nl/wiki/Patient(NL) | [FHIR Address](https://www.hl7.org/fhir/datatypes.html#Address) |
 | :--- | :--- |
 | Straat | line |
 | Huisnummer | line |
@@ -47,7 +46,7 @@
 | AdditioneleInformatie |  |
 | AdresSoort | use |
 
-###ContactGegevens
+### ContactGegevens
 
 | [ZIB Concept ContactGegevens](https://zibs.nl/wiki/Patient(NL) | [FHIR Patient\(telecom\)](https://www.hl7.org/fhir/datatypes.html#HumanName)\* |
 | :--- | :--- |
@@ -55,7 +54,6 @@
 | EmailAdressen | telecom |
 
 \* Valt onder het onderdeel 'telecom' bij Resource Patient. \(Via verwijzing of erachter met "\(\)"\)
- 
 
 * ##### Telefoonnummers
 
@@ -63,7 +61,6 @@
 | :--- | :--- |
 | Telefoonnummers | value |
 | Nummersoort | use |
-
 
 * ##### EmailAdressen
 

@@ -1,9 +1,10 @@
 # Patient
 
-- Probleem links ZIB Patient
- - Link eindigt met "(NL)" en dit gaat fout.
+* Probleem links ZIB Patient
+  * Link eindigt met "\(NL\)" en dit gaat fout.
 
-### Onderdelen
+### Concepten
+
 | [ZIB Patiënt](https://zibs.nl/wiki/Patient(NL) | [FHIR Patiënt](https://www.hl7.org/fhir/patient.html) |
 | :--- | :--- |
 | PatientIdentificatieNummer | Identifier |
@@ -11,14 +12,15 @@
 | Geslacht | Gender |
 | Meerling | multipleBirth |
 | Naamgegevens \[[1](/bouwsteen/patient/patient-concepten.md)\] | Name |
-|AdresGegevens \[[2](/bouwsteen/patient/patient-concepten.md)\]  | address |
+| AdresGegevens \[[2](/bouwsteen/patient/patient-concepten.md)\] | address |
 | ContactGegevens \[[3](/bouwsteen/patient/patient-concepten.md###ContactGegevens)\] | telecom |
 | OverlijdingsIndicator | deceased |
 | DatumOverlijden | deceased |
-\[_#_\] Bestaan uit meerdere onderdelen
 
+\[_\#_\] Bestaan uit meerdere onderdelen
 
 ### Datatypen
+
 | Concept | ZIB Patiënt | FHIR Patiënt |
 | :--- | :--- | :--- |
 | PatientIdentificatieNummer | String | String |
@@ -31,8 +33,7 @@
 | OverlijdingsIndicator | Boolean | Boolean |
 | DatumOverlijden | Timestamp | dateTime |
 
-
-* Idee --> Concept wat meerdere onderdelen bevat als link neerzetten en verwijzen naar andere pagina waar deze weer worden vergeleken.
+* Idee --&gt; Concept wat meerdere onderdelen bevat als link neerzetten en verwijzen naar andere pagina waar deze weer worden vergeleken.
 
 [dit is de tekst](http://kapitan.net)
 
