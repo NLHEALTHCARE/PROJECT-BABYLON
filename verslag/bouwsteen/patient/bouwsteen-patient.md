@@ -11,10 +11,11 @@
 | Geslacht | Gender |
 | Meerling | multipleBirth |
 | Naamgegevens \[[1](/bouwsteen/patient/patient-concepten.md)\] | Name |
-|AdresGegevens \[[2](/bouwsteen/patient/patient-concepten.md)\]  | address \[[2](/bouwsteen/patient/patient-concepten.md)\] |
-| ContactGegevens \[[3](/bouwsteen/patient/patient-concepten.md)\] | telecom \[[3](/bouwsteen/patient/patient-concepten.md)\] |
+|AdresGegevens \[[2](/bouwsteen/patient/patient-concepten.md)\]  | address |
+| ContactGegevens \[[3](/bouwsteen/patient/patient-concepten.md###ContactGegevens)\] | telecom |
 | OverlijdingsIndicator | deceased |
 | DatumOverlijden | deceased |
+\[#\] Bestaan uit meerdere onderdelen
 
 
 ### Datatypen
