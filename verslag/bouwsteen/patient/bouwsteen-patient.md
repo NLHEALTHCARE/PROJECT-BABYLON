@@ -1,7 +1,6 @@
 # Patient
 
-* Probleem links ZIB Patient
-  * Link eindigt met "\(NL\)" en dit gaat fout.
+\* Probleem links ZIB Patient. (Link eindigt met "\(NL\)" en dit gaat fout.)
 
 ### Concepten
 
