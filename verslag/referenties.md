@@ -1,7 +1,5 @@
 # Referenties
 
-Hier komen de referenties te staan, volgens vancouver style.
-
 1. Huber M, Knottnerus JA, Green L, van der Horst H, Jadad AR, Kromhout D, Leonard B, Lorig K, Loureiro MI, van der Meer JW, Schnabel P, Smith R, van Wheel C, Smid H. How should we define health?. BMJ 2011, 343: d4163.
 2. Khan WA, Hussain M, Afzal M, Amin MB, Saleem MA, Lee S. Personalized-detailed clinical model for data interoperability
    among clinical standards. Telemed J E Health 2013, 19\(8\): 632-642
