@@ -42,7 +42,7 @@ patient = {
           }
 
 naamPatient = patient.name[0].given;
-          
+
 if (naamPatient.search("\\.") >= 1)
 {
     initialen = patient.name[0].given;
@@ -53,7 +53,6 @@ else
     naam = patient.name[0].given;
 }
 ```
-
 
 * ##### Geslachtsnaam
 
@@ -87,12 +86,14 @@ else
 | AdditioneleInformatie |  |
 | AdresSoort | use |
 
+* Hierbij zelfde soort code gebruiken als bij 'Naamgegevens' en 'ContactGegevens' en line opsplitsen aan de hand van de regex. Dus online staat als voorbeeld het adres: "137 Nowhere Street". Via regex kan nummer eruit worden gehaald en de straat en dit opslaan in variabelen.
+
 ### ContactGegevens
 
 | [ZIB Concept ContactGegevens](https://zibs.nl/wiki/Patient(NL) | [FHIR Patient\(telecom\)](https://www.hl7.org/fhir/datatypes.html#HumanName)\* |
 | :--- | :--- |
-| Telefoonnummers | system(telecom) |
-| EmailAdressen | system(telecom) |
+| Telefoonnummers | system\(telecom\) |
+| EmailAdressen | system\(telecom\) |
 
 \* Valt onder het onderdeel 'telecom' bij Resource Patient. \(Via verwijzing of erachter met "\(\)"\)
 
@@ -185,4 +186,6 @@ else if (systeemSoort.search("email") == 0)
 
 emailAdres = contactGegevens.value;
 ```
+
+
 
