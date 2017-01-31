@@ -86,7 +86,7 @@ else
 | AdditioneleInformatie |  |
 | AdresSoort | use |
 
-* Hierbij zelfde soort code gebruiken als bij 'Naamgegevens' en 'ContactGegevens' en line opsplitsen aan de hand van de regex. Dus online staat als voorbeeld het adres: "137 Nowhere Street". Via regex kan nummer eruit worden gehaald en de straat en dit opslaan in variabelen.
+* Hierbij zelfde soort code gebruiken als bij 'Naamgegevens' en 'ContactGegevens' en line opsplitsen aan de hand van de regex. Dus online staat als voorbeeld het adres: "137 Nowhere Street". Via regex ((\d+)\s(\w+\s+\w+)) kan nummer eruit worden gehaald en de straat en dit opslaan in variabelen.
 
 ### ContactGegevens
 
