@@ -160,7 +160,7 @@ else if (systeemSoort.search("email") == 0)
 telefoonNummer = contactGegevens.value;
 ```
 
-In de code hieronder staat een voorbeeld hoe de code eruit ziet als het om een emailadres gaat:
+In de code hieronder staat een voorbeeld wanneer het om een emailadres gaat:
 
 ```
 var contactGegevens, systeemSoort, contactSoort, telefoonNummer, emailAdres;
