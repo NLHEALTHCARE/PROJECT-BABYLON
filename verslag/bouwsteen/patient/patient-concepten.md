@@ -14,6 +14,29 @@
 
 \* Staat bij de Resource Patient als onderdeel.
 
+In het onderdeel 'Naamgegevens' krijgen 'Voornaam', 'Initialen' en 'Roepnaam' het veld 'given' in FHIR. Om het verscil hier tussen alsnog te onderscheiden kan worden gekeken in de code hoe given wordt gerepresenteerd. Wanneer in FHIR given een punt \('.'\) bevat dan is dit in ZIB een initiaal. Dit kan gecontroleerd worden via deze code:
+
+```
+var patient, naamPatient, initialen;
+
+patient = {
+             "name": [ { "use": "official",
+                         "family": [ "Donald" ],
+                         "given": [ "D." ]
+                     } ]
+          }
+
+naamPatient = patient.name[0].given;
+          
+if (naamPatient.search("\\.") >= 1)
+{
+    initialen = patient.name[0].given;
+}
+
+```
+
+
+
 * ##### Geslachtsnaam
 
 | [ZIB Concept geslachtsnaam](https://zibs.nl/wiki/Patient(NL) | [FHIR Name](https://www.hl7.org/fhir/datatypes.html#HumanName) |
