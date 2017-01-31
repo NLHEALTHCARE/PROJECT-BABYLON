@@ -99,7 +99,7 @@ else
 Net als bij het onderdeel 'Naamgegevens' verwijzen de velden 'Telefoonnummer' en 'EmailAdressen' naar hetzelfde veld in FHIR, namelijk het veld 'system'. In de code van FHIR kan worden gelezen om wat voor soort contactgegeven het gaat, in onderstaande code kan wordt bepaalt of het om een telefoonnummer of emailadres gaat:
 
 ```
-var contactGegevens, contactSoort, telefoonNummer, emailAdres;
+var contactGegevens, systeemSoort, contactSoort, telefoonNummer, emailAdres;
 
 contactGegevens = {
                     "resourceType" : "ContactPoint",
@@ -107,16 +107,16 @@ contactGegevens = {
                     "value" : "(555) 675 5745",
                     "use" : "home"
                   }
-contactSoort = contactGegevens.system;
+systeemSoort = contactGegevens.system;
 
-if (contactSoort.search("phone") == 0)
+if (systeemSoort.search("phone") == 0)
 {
-    telefoonNummer = contactGegevens.system;
+    contactSoort = contactGegevens.system;
 }
 
-else if (contactSoort.search("email") == 0)
+else if (systeemSoort.search("email") == 0)
 {
-    emailAdres = contactGegevens.system;
+    contactSoort = contactGegevens.system;
 }
 ```
 
@@ -134,5 +134,55 @@ else if (contactSoort.search("email") == 0)
 | EmailAdres | value |
 | EmailSoort | use |
 
+Ook bij de onderdelen 'Telefoonnummers' en 'EmailAdressen' zijn de velden in FHIR hetzelfde. Ook hierbij kan uit de code worden gelezen of het om een telefoonnummer of emailadres gaat, hieronder staat een voorbeeld van de code voor de velden bij het onderdeel 'Telefoonnummers':
 
+```
+var contactGegevens, systeemSoort, contactSoort, telefoonNummer, emailAdres;
+
+contactGegevens = {
+                    "resourceType" : "ContactPoint",
+                    "system" : "phone",
+                    "value" : "(555) 675 5745",
+                    "use" : "home"
+                  }
+systeemSoort = contactGegevens.system;
+
+if (systeemSoort.search("phone") == 0)
+{
+    contactSoort = contactGegevens.system;
+}
+
+else if (systeemSoort.search("email") == 0)
+{
+    contactSoort = contactGegevens.system;
+}
+
+telefoonNummer = contactGegevens.value;
+```
+
+In de code hieronder staat een voorbeeld hoe de code eruit ziet als het om een emailadres gaat:
+
+```
+var contactGegevens, systeemSoort, contactSoort, telefoonNummer, emailAdres;
+
+contactGegevens = {
+                    "resourceType" : "ContactPoint",
+                    "system" : "email",
+                    "value" : "example@hl7fhir.org",
+                    "use" : "home"
+                  }
+systeemSoort = contactGegevens.system;
+
+if (systeemSoort.search("phone") == 0)
+{
+    contactSoort = contactGegevens.system;
+}
+
+else if (systeemSoort.search("email") == 0)
+{
+    contactSoort = contactGegevens.system;
+}
+
+emailAdres = contactGegevens.value;
+```
 
