@@ -17,6 +17,6 @@
 15. Mistry NK, Toulany A, Edmonds JF, Matlow A. Optimizing physician handover through the creation of a comprehensive minimum data set. Healthc Q 2010, 13: 102-109.
 16. Registratie aan de bron. Zorginformatiebouwstenen. \[Internet\]. Beschikbaar via: [https://www.registratieaandebron.nl/wat-is-registreren-aan-de-bron/de-kern-van-registreren-aan-de-bron/zorginformatiebouwstenen/](https://www.registratieaandebron.nl/wat-is-registreren-aan-de-bron/de-kern-van-registreren-aan-de-bron/zorginformatiebouwstenen/). \[Geraadpleegd 19 Januari 2017\].
 17. Nictiz. FHIR dé standaard voor gegevensuitwisseling in de zorg? \[Internet\]. Beschikbaar via: [https://www.nictiz.nl/blog/fhir-de-standaard-voor-gegevensuitwisseling-in-de-zorg](https://www.nictiz.nl/blog/fhir-de-standaard-voor-gegevensuitwisseling-in-de-zorg). \[Geraadpleegd 19 November 2016\].
-18. Studeny J, Coustasse A. Personal health records: is rapid adoption hindering interoperability. Personal Health Inf Manag 2014, 11: 1e
+18. Studeny J, Coustasse A. Personal health records: is rapid adoption hindering interoperability. Personal Health Inf Manag 2014, 11: 1e.
 
 
