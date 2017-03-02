@@ -16,4 +16,5 @@
 14. Ireland RS, Jenner AM, Williams MJ, Tickle M. A clinical minimum data set for primary dental care. Br Dent J 2001, 190(12): 663-667.
 15. Bagley TC, Schaffer, J. Minimum data set development: Air transport time-related terms. International Journal of Medical Informatics 2002, 65(2): 121-133.
 16. Mistry NK, Toulany A, Edmonds JF, Matlow A. Optimizing physician handover through the creation of a comprehensive minimum data set. Healthc Q 2010, 13: 102-109.
-17. Goossen WT, Goossen-Baremans A. Bridging the HL7 Template - 13606 Archetype gap with Detailed Clinical Models. Stud Health Technol Inform 2010, 160(PT2): 932-936.
+17. Studeny J, Coustasse A. Personal health records: is rapid adoption hindering interoperability. Personal Health Inf Manag 2014, 11: 1e
+18. Goossen WT, Goossen-Baremans A. Bridging the HL7 Template - 13606 Archetype gap with Detailed Clinical Models. Stud Health Technol Inform 2010, 160(PT2): 932-936.
