@@ -18,3 +18,4 @@
 16. Mistry NK, Toulany A, Edmonds JF, Matlow A. Optimizing physician handover through the creation of a comprehensive minimum data set. Healthc Q 2010, 13: 102-109.
 17. Studeny J, Coustasse A. Personal health records: is rapid adoption hindering interoperability. Personal Health Inf Manag 2014, 11: 1e
 18. Goossen WT, Goossen-Baremans A. Bridging the HL7 Template - 13606 Archetype gap with Detailed Clinical Models. Stud Health Technol Inform 2010, 160(PT2): 932-936.
+19. Novak JD, Cañas AJ. The Theory Underlying Concept Maps and How to Construct and Use Them. Beschikbaar via: [http://cmap.ihmc.us/docs/theory-of-concept-maps](http://cmap.ihmc.us/docs/theory-of-concept-maps). [Geraadpleegd 3 Maart 2017].
