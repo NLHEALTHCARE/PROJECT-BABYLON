@@ -19,3 +19,6 @@
 17. Studeny J, Coustasse A. Personal health records: is rapid adoption hindering interoperability. Personal Health Inf Manag 2014, 11: 1e
 18. Goossen WT, Goossen-Baremans A. Bridging the HL7 Template - 13606 Archetype gap with Detailed Clinical Models. Stud Health Technol Inform 2010, 160(PT2): 932-936.
 19. Novak JD, Cañas AJ. The Theory Underlying Concept Maps and How to Construct and Use Them. Beschikbaar via: [http://cmap.ihmc.us/docs/theory-of-concept-maps](http://cmap.ihmc.us/docs/theory-of-concept-maps). [Geraadpleegd 3 Maart 2017].
+20. Health Level 7. Resource Index [Internet]. Beschikbaar via: [http://hl7.org/fhir/resourcelist.html](http://hl7.org/fhir/resourcelist.html). [Geraadpleegd 3 Maart 2017].
+21. Nictiz. Zorginformatiebouwstenen [Internet]. Beschikbaar via: [https://zibs.nl/wiki/Zorginformatiebouwstenen](https://zibs.nl/wiki/Zorginformatiebouwstenen). [Geraadpleegd … Maart 2017].
+22. NL Healthcare Clinics. hl7rim_enums.py [Internet]. Beschikbaar via: [https://github.com/NLHEALTHCARE/CLINICAL_DATAVAULT/blob/master/domainmodel_hl7_rim/hl7rim_enums.py](https://github.com/NLHEALTHCARE/CLINICAL_DATAVAULT/blob/master/domainmodel_hl7_rim/hl7rim_enums.py). [Geraadpleegd 3 Maart 2017].
