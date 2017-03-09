@@ -35,6 +35,7 @@ De bouwstenen die worden vergeleken zijn:
 | 22 | Patient |
 
 
+![](/verslag/images/fhir_concept_map.png)
 
 
 
