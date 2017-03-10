@@ -6,7 +6,8 @@ De bouwstenen die worden vergeleken zijn:
 
 * [Patiënt](/bouwsteen/patient/bouwsteen-patient.md)
 * [Medicatie](/bouwsteen/patient/bouwsteen-patient.md)
-* [Concept Map]()
+* [FHIR](/resultaten/FHIR.md)
+* [zib's](/resultaten/zib.md)
 
 
 |Nummer|[Resource](https://www.hl7.org/fhir/resourcelist.html)|

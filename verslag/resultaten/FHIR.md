@@ -1,7 +1,6 @@
 # FHIR
 
-* [Concept Map]()
-
+Parking Lot FHIR.
 
 |Nummer|[Resource](https://www.hl7.org/fhir/resourcelist.html)|
 |:--|:--|
