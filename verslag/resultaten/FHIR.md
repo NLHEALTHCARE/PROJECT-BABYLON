@@ -43,6 +43,11 @@ Parking Lot FHIR.
 | __37__ | [DiagnosticReport](https://www.hl7.org/fhir/diagnosticreport.html) |
 | __38__ | [Observation](https://www.hl7.org/fhir/observation.html) |
 | __39__ | [Patient](https://www.hl7.org/fhir/patient.html) |
+| __40__ | Flag |
+| __41__ | FamilyMemberHistory |
+| __42__ | Claim |
+| __43__ | Coverage |
+| __44__ | Consent |
 
 
 ![](/verslag/images/fhir_concept_map.png)
