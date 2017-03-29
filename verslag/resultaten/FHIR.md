@@ -43,14 +43,14 @@ Parking Lot FHIR.
 | __37__ | [DiagnosticReport](https://www.hl7.org/fhir/diagnosticreport.html) |
 | __38__ | [Observation](https://www.hl7.org/fhir/observation.html) |
 | __39__ | [Patient](https://www.hl7.org/fhir/patient.html) |
-| __40__ | Flag |
-| __41__ | FamilyMemberHistory |
-| __42__ | Claim |
-| __43__ | Coverage |
-| __44__ | Consent |
+| __40__ | [Flag](https://www.hl7.org/fhir/flag.html) |
+| __41__ | [FamilyMemberHistory](https://www.hl7.org/fhir/familymemberhistory.html) |
+| __42__ | [Claim](https://www.hl7.org/fhir/claim.html) |
+| __43__ | [Coverage](https://www.hl7.org/fhir/coverage.html) |
+| __44__ | [Consent](https://www.hl7.org/fhir/consent.html) |
 
 
-![](/verslag/images/fhir_concept_map.png)
+![](/verslag/images/fhir\_resources\_conceptMap.png)
 
 
 
