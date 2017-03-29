@@ -50,8 +50,6 @@ Parking Lot FHIR.
 | __44__ | [Consent](https://www.hl7.org/fhir/consent.html) |
 
 
-![](/verslag/images/fhir\_resources\_conceptMap.png)
-
 
 
 
