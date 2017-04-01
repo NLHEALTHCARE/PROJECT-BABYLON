@@ -47,7 +47,7 @@ Parking Lot FHIR.
 | __41__ | [FamilyMemberHistory](https://www.hl7.org/fhir/familymemberhistory.html) |
 | __42__ | [Claim](https://www.hl7.org/fhir/claim.html) |
 | __43__ | [Coverage](https://www.hl7.org/fhir/coverage.html) |
-| __44__ | [Consent](https://www.hl7.org/fhir/consent.html) |
+| __44__ | [Consent](https://www.hl7.org/fhir/consent.html) | 
 
 
 
