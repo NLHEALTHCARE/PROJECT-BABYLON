@@ -1,31 +1,44 @@
+-- Script hoort bij de Zorginformatiebouwsteen Patient.
 select
-   ifct_bsn                                     as "identifier"                 -- PatientIdentificatienummer
-   , null                                       as "active"                     -- Is patientenrecord in gebruik
-   , null                                       as "name_use"                   -- zib's Patient definieert Naamgebruikcodes https://zibs.nl/wiki/Patient(NL)#NaamgebruikCodelijst
-   , null                                       as "name_text"                  -- Roepnaam
-   , ifct_achternaam                            as "name_familiy"               -- Geslachtsnaam_Achternaam
-   , ifct_voornaam                              as "name_given"                 -- Voornaam
-   , null                                       as "telecom_system"             -- zib's Patient definieert NummerSoortCodes: https://zibs.nl/wiki/Patient(NL)#NummerSoortCodelijst
-   , null                                       as "telecom_value"              -- zib's Patient definieert een Telefoonnummer.
-   , ifct_geslacht                              as "gender"                     -- Geslacht
-   , v_intf_contact.ifct_geboortedtm            as "birthdate"                  -- Geboortedatum
-   , v_intf_contact.ifct_vervaldtm              as "deceased"                   -- OverlijdingsIndicator
-   , v_intf_contact.ifct_straat_b               as "address_text"               -- AdresGegevens_straat
-   , v_intf_contact.ifct_huisnr_b               as "address_text"               -- AdresGegevens_huisnummer
-   , null                                       as "address_line"               -- zib's Patient definieert bij AdresGegevens een Huisnummerletter.
-   , v_intf_contact.ifct_gebouw_b               as "address_line"               -- zib's Patient definieert bij AdresGegevens een Huisnummertoevoeging.
-   , null                                       as "address_line"               -- zib's Patient definieert AanduidingBijNummerCodes: https://zibs.nl/wiki/Patient(NL)#AanduidingBijNummerCodelijst
-   , v_intf_contact.ifct_postcode_b             as "address_postalCode"         -- AdresGegevens_postcode
-   , v_intf_contact.ifct_plaats_b               as "adress_city"                -- AdresGegevens_woonplaats
-   , null                                       as "address"                    -- zib's Patient definieert bij AdresGegevens een Gemeente.
-   , v_intf_contact.ifct_lnd_omschrijving_b     as "address_country"            -- zib's Patient definieert bij AdresGegevens twee verschillende LandCodes: https://zibs.nl/wiki/Patient(NL)#LandGBACodelijst
-   , null                                       as "address_line"               -- zib's Patient definieert bij AdresGegevens AdditioneleInformatie.
-   , v_intf_contact.ifct_is_meerling            as "multiple_birth"             -- MeerlingIndicator.
-   , v_intf_contact.ifct_voorletters_partner    as "contact_name_prefix"        -- VoorvoegselsPartner.
-   , v_intf_contact.ifct_achternaam_partner     as "contact_name_family"        -- AchternaamPartner.
-   , null                                       as "contact_"                   -- PartnerPatient_Identificatienummer.
-   , v_intf_contact.ifct_geslacht_partner       as "contact_gender"             -- PartnerGeslacht.
-   , null                                       as "contact_"                   -- zib's definieert bij Patient_Partner MeerlingIndicator, FHIR niet en staat ook niet in database.
-   , null                                       as "contact_period"             -- zib's definieert bij Patient_Partner Overlijdindicator, staat niet in databse.
+   ifct_bsn                     as "identifier"                         -- PatientIdentificatienummer. (FHIR)
+   , null                       as "in_gebruik"                         -- Is patientenrecord in gebruik. (FHIR)
+   , null                       as "telefoon"                           -- zib's Patient definieert een Telefoonnummer.
+   , null                       as "nummer_soort"                       -- zib's Patient definieert NummerSoortCodes: https://zibs.nl/wiki/Patient(NL)#NummerSoortCodelijst
+   , null                       as "mail_adres"                         -- zib's Patient definieert een EmailAdres.
+   , null                       as "mail_soort"                         -- zib's Patient definieert het type EmailAdres.
+   , ifct_straat_b              as "adres_straatnaam"                   -- AdresGegevens_straat.
+   , ifct_huisnr_b              as "adres_straatnaam"                   -- AdresGegevens_huisnummer.
+   , null                       as "adres_huisnummer_letter"            -- zib's Patient definieert bij AdresGegevens een Huisnummerletter.
+   , ifct_gebouw_b              as "adres_huisnummer_toeboeging"        -- zib's Patient definieert bij AdresGegevens een Huisnummertoevoeging.
+   , null                       as "adres_aanduiding_bij_nummer"        -- zib's Patient definieert AanduidingBijNummerCodes: https://zibs.nl/wiki/Patient(NL)#AanduidingBijNummerCodelijst
+   , ifct_postcode_b            as "adres_postcode"                     -- AdresGegevens_postcode.
+   , ifct_plaats_b              as "adres_woonplaats"                   -- AdresGegevens_woonplaats.
+   , null                       as "adres_gemeente"                     -- zib's Patient definieert bij AdresGegevens een Gemeente.
+   , ifct_lnd_omschrijving_b    as "adres_land"                         -- zib's Patient definieert bij AdresGegevens twee verschillende LandCodes: https://zibs.nl/wiki/Patient(NL)#LandGBACodelijst
+   , null                       as "address_extra_info"                 -- zib's Patient definieert bij AdresGegevens AdditioneleInformatie.
+   , null                       as "naam_gebruik"                       -- zib's Patient definieert Naamgebruikcodes https://zibs.nl/wiki/Patient(NL)#NaamgebruikCodelijst
+   , null                       as "name_text"                          -- Volledige naam. (FHIR)
+   , ifct_voornaam              as "naam_voornaam"                      -- Voornaam.
+   , ifct_voorletters           as "naam_initialen"                     -- Initialen.
+   , ifct_achternaam            as "name_familiy"                       -- Geslachtsnaam_Achternaam.
+   , ifct_tussenvoegsels        as "name_given"                         -- Tussenvoegsels.
+   , ifct_roepnaam              as "naam_roepnaam"                      -- Roepnaam.
+   , ifct_geslacht              as "geslacht"                           -- Geslacht.
+   , ifct_geboortedtm           as "geboortedatum"                      -- Geboortedatum.
+   , ifct_vervaldtm             as "overlijdings_indicator"             -- OverlijdingsIndicator.
+   , null                       as "datum_overlijden"                   -- DatumOverlijden.
+   , ifct_burgelijke_staat      as "burgelijke_staat"                   -- BurgelijkeStaat.
+   , ifct_is_meerling           as "multiple_birth"                     -- MeerlingIndicator.
+   , null                       as "contact_relationship"               -- Soort Contactpersoon.
+   , ifct_voorletters_partner   as "contact_voorvoegsels"               -- ContactVoorvoegsels.
+   , ifct_achternaam_partner    as "contact_achternaam"                 -- ContactAchternaam.
+   , null                       as "contact_identifier"                 -- Contact_Identificatienummer.
+   , ifct_geslacht_partner      as "contact_gender"                     -- PartnerGeslacht.
+   , null                       as "contact_meerling"                   -- zib's definieert bij Patient_Partner MeerlingIndicator.
+   , null                       as "contact_periode_gebruik"            -- Periode waarin deze contact persoon wordt gebruikt. (FHIR)
+   , null                       as "contact_organisation"               -- Bij welke zorgaanbieder zit de contactpersoon. (FHIR)
+   , null                       as "zorgverlener"                       -- Wie is de arts van deze patient. (FHIR)
+   , null                       as "zorgaanbieder"                      -- Bij welke zorgaanbieder zit deze patient. (FHIR)
+
 from mtdx.v_intf_contact 
-where ifct_soort = 9                                                            -- Dit zijn patienten
+where ifct_soort = 9                                                    -- Dit zijn patienten
