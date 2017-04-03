@@ -19,8 +19,8 @@ De mapping van de zorginformatiebouwstenen (zib) naar de FHIR-resources.
 | AllergieIntolerantie | [AllergyIntolerance](https://www.hl7.org/fhir/allergyintolerance.html) |
 | Betaler | [Claim]()/[Coverage](https://www.hl7.org/fhir/coverage.html) |
 | Wilsverklaring | [Consent](https://www.hl7.org/fhir/consent.html) |
-| Levensovertuiging | [Patient-religion]() |
-| Nationaliteit | [Patient-nationality]() |
+| Levensovertuiging | [Patient-religion](https://www.hl7.org/fhir/extension-patient-religion.html) |
+| Nationaliteit | [Patient-nationality](https://www.hl7.org/fhir/extension-patient-nationality.html) |
 | Contact | [Encounter](https://www.hl7.org/fhir/encounter.html) |
 | Woonsituaie | [Patient](https://www.hl7.org/fhir/patient.html) |
 | BurgelijkeStaat | [Patient](https://www.hl7.org/fhir/patient.html) |
