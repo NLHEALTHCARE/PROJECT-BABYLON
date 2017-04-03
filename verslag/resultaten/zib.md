@@ -29,19 +29,20 @@ Parking Lot Zorginformatiebouwstenen.
 | __23__ | Zorgaanbieder |
 | __24__ | Zorgverlener |
 | __25__ | Patient |
-| __26__ | DrugsGebruik |
-| __27__ | AlcoholGebruik |
-| __28__ | TabaksGebruik |
-| __29__ | OverdrachtVerrichting |
-| __30__ | OverdrachtTekstUitleg |
-| __31__ | OverdrachtLaboritoriumUitslag |
-| __32__ | MedicatieGebruik |
-| __33__ | Lichaamslengte |
-| __34__ | Lichaamsgewicht |
-| __35__ | Ademhaling |
-| __36__ | Pijnscore |
-| __37__ | Polsfrequentie |
-
+| __26__ | Voedingsadvies|
+| __27__ | DrugsGebruik |
+| __28__ | AlcoholGebruik |
+| __29__ | TabaksGebruik |
+| __30__ | OverdrachtVerrichting |
+| __31__ | OverdrachtTekstUitleg |
+| __32__ | OverdrachtLaboritoriumUitslag |
+| __33__ | MedicatieGebruik |
+| __34__ | Lichaamslengte |
+| __35__ | Lichaamsgewicht |
+| __36__ | Ademhaling |
+| __37__ | Pijnscore |
+| __38__ | Bloeddruk |
+| __39__ | Polsfrequentie |
 
 
 
