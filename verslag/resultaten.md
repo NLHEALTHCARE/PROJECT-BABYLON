@@ -8,6 +8,7 @@ De bouwstenen die worden vergeleken zijn:
 * [Medicatie](/bouwsteen/patient/bouwsteen-patient.md)
 * [FHIR](/resultaten/FHIR.md)
 * [zib's](/resultaten/zib.md)
+* [mapping zib's naar FHIR](/resultaten/mapping.md)
 
 
 ![](/verslag/images/fhir_concept_map.png)
