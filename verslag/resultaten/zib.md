@@ -1,6 +1,38 @@
 # Zorginformatiebouwstenen
 
-Parking Lot Zorginformatiebouwstenen.
+De zorginformatiebouwstenen (zib) die in de  Basisgevensset Zorg (BgZ) gesorteerd van generiek naar specifiek.
+
+|Nummer|[Bouwsteen](https://zibs.nl/wiki/Zorginformatiebouwstenen)|
+|:--|:--|
+| __1__ | Alert |
+| __2__ | FunctioneleOfMentaleStatus |
+| __3__ | BehandelAanwijzing |
+| __4__ | OverdrachtGeplandeZorgActiviteit |
+| __5__ | OverdrachtConcern |
+| __6__ | MedischeHulpmiddel |
+| __7__ | Vaccinatie |
+| __8__ | AllergieIntolerantie |
+| __9__ | Betaler |
+| __10__ | Wilsverklaring |
+| __11__ | Contact |
+| __12__ | Woonsituatie |
+| __13__ | BurgelijkeStaat |
+| __14__ | Contactpersoon |
+| __15__ | Zorgverlener |
+| __16__ | Patiënt |
+| __17__ | Voedingsadvies |
+| __18__ | DrugsGebruik |
+| __19__ | AlcoholGebruik |
+| __20__ | TabakGebruik |
+| __21__ | OverdrachtVerrichting |
+| __22__ | OverdrachtLaboritoriumUitslag |
+| __23__ | MedicatieGebruik |
+| __24__ | Lichaamslengte |
+| __25__ | Lichaamsgewicht |
+| __26__ | Bloeddruk|
+
+
+De belangrijkste zib's voor de beweginszorg gesorteerd van generiek naar specifiek.
 
 |Nummer|[Bouwsteen](https://zibs.nl/wiki/Zorginformatiebouwstenen)|
 |:--|:--|
