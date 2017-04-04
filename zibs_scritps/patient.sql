@@ -1,7 +1,9 @@
--- Script hoort bij de Zorginformatiebouwsteen Patient.
+-- Script hoort bij de Zorginformatiebouwsteen Patient. (https://zibs.nl/wiki/Patient(NL)) 
+-- De FHIR resource Patient is hier deels voor gebruikt. (https://www.hl7.org/fhir/patient.html#resource)
+
 select
-   ifct_bsn                     as "identifier"                         -- PatientIdentificatienummer. (FHIR)
-   , null                       as "in_gebruik"                         -- Is patientenrecord in gebruik. (FHIR)
+   ifct_bsn                     as "identifier"                         -- PatientIdentificatienummer. (FHIR - identifier)
+   , null                       as "in_gebruik"                         -- Is patientenrecord in gebruik. (FHIR - active)
    , null                       as "telefoon"                           -- zib's Patient definieert een Telefoonnummer.
    , null                       as "nummer_soort"                       -- zib's Patient definieert NummerSoortCodes: https://zibs.nl/wiki/Patient(NL)#NummerSoortCodelijst
    , null                       as "mail_adres"                         -- zib's Patient definieert een EmailAdres.
@@ -17,7 +19,7 @@ select
    , ifct_lnd_omschrijving_b    as "adres_land"                         -- zib's Patient definieert bij AdresGegevens twee verschillende LandCodes: https://zibs.nl/wiki/Patient(NL)#LandGBACodelijst
    , null                       as "address_extra_info"                 -- zib's Patient definieert bij AdresGegevens AdditioneleInformatie.
    , null                       as "naam_gebruik"                       -- zib's Patient definieert Naamgebruikcodes https://zibs.nl/wiki/Patient(NL)#NaamgebruikCodelijst
-   , null                       as "name_text"                          -- Volledige naam. (FHIR)
+   , null                       as "name_text"                          -- Volledige naam. (FHIR - name)
    , ifct_voornaam              as "naam_voornaam"                      -- Voornaam.
    , ifct_voorletters           as "naam_initialen"                     -- Initialen.
    , ifct_achternaam            as "name_familiy"                       -- Geslachtsnaam_Achternaam.
@@ -29,16 +31,16 @@ select
    , null                       as "datum_overlijden"                   -- DatumOverlijden.
    , ifct_burgelijke_staat      as "burgelijke_staat"                   -- BurgelijkeStaat.
    , ifct_is_meerling           as "multiple_birth"                     -- MeerlingIndicator.
+   , null                       as "zorgverlener"                       -- Wie is de arts van deze patient. (FHIR - generalPractitioner)
+   , null                       as "zorgaanbieder"                      -- Bij welke zorgaanbieder zit deze patient. (FHIR - managingOrganization)
    , null                       as "contact_relationship"               -- Soort Contactpersoon.
    , ifct_voorletters_partner   as "contact_voorvoegsels"               -- ContactVoorvoegsels.
    , ifct_achternaam_partner    as "contact_achternaam"                 -- ContactAchternaam.
    , null                       as "contact_identifier"                 -- Contact_Identificatienummer.
    , ifct_geslacht_partner      as "contact_gender"                     -- PartnerGeslacht.
    , null                       as "contact_meerling"                   -- zib's definieert bij Patient_Partner MeerlingIndicator.
-   , null                       as "contact_periode_gebruik"            -- Periode waarin deze contact persoon wordt gebruikt. (FHIR)
-   , null                       as "contact_organisation"               -- Bij welke zorgaanbieder zit de contactpersoon. (FHIR)
-   , null                       as "zorgverlener"                       -- Wie is de arts van deze patient. (FHIR)
-   , null                       as "zorgaanbieder"                      -- Bij welke zorgaanbieder zit deze patient. (FHIR)
+   , null                       as "contact_periode_gebruik"            -- Periode waarin deze contact persoon wordt gebruikt. (FHIR - contact.period)
+   , null                       as "contact_organisation"               -- Bij welke zorgaanbieder zit de contactpersoon. (FHIR - contact.organization)
 
 from mtdx.v_intf_contact 
 where ifct_soort = 9                                                    -- Dit zijn patienten
