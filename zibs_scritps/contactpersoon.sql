@@ -1,6 +1,6 @@
 -- Script hoort bij de Zorginformatiebouwsteen Contactpersoon. (https://zibs.nl/wiki/Contactpersoon(NL))
 -- De FHIR resource RelatedPerson is hier deels voor gebruikt. (https://www.hl7.org/fhir/relatedperson.html#resource)
--- Voor bepaalde CodeLijsten wordt gerefereerd naar de zib Patient, omdat deze CodeLijsten niet in de zib Contactpersoon zijn beschreven.
+-- Voor bepaalde CodeLijsten wordt gerefereerd naar de zib Patient, omdat deze CodeLijsten niet in de zib Contactpersoon zijn beschreven. (https://zibs.nl/wiki/Patient(NL))
 
 select
         ifct_tit_code_partner           as "identifier"                         -- id van de contactpersoon. (FHIR - identifier) -- ifct_code_p ???
@@ -18,7 +18,7 @@ select
         , null                          as "adres_straatnaam"                   -- AdresGegevens_straat van de contactpersoon.
         , null                          as "adres_straatnaam"                   -- AdresGegevens_huisnummer  van de contactpersoon.
         , null                          as "adres_huisnummer_letter"            -- zib's definieert bij AdresGegevens een Huisnummerletter.
-        , null                          as "adres_huisnummer_toeboeging"        -- zib's definieert bij AdresGegevens een Huisnummertoevoeging.
+        , null                          as "adres_huisnummer_toevoeging"        -- zib's definieert bij AdresGegevens een Huisnummertoevoeging.
         , null                          as "adres_aanduiding_bij_nummer"        -- zib's definieert AanduidingBijNummerCodes: https://zibs.nl/wiki/Patient(NL)#AanduidingBijNummerCodelijst
         , null                          as "adres_postcode"                     -- AdresGegevens_postcode  van de contactpersoon.
         , null                          as "adres_woonplaats"                   -- AdresGegevens_woonplaats  van de contactpersoon.

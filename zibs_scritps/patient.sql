@@ -11,7 +11,7 @@ select
    , ifct_straat_b              as "adres_straatnaam"                   -- AdresGegevens_straat.
    , ifct_huisnr_b              as "adres_straatnaam"                   -- AdresGegevens_huisnummer.
    , null                       as "adres_huisnummer_letter"            -- zib's Patient definieert bij AdresGegevens een Huisnummerletter.
-   , ifct_gebouw_b              as "adres_huisnummer_toeboeging"        -- zib's Patient definieert bij AdresGegevens een Huisnummertoevoeging.
+   , ifct_gebouw_b              as "adres_huisnummer_toevoeging"        -- zib's Patient definieert bij AdresGegevens een Huisnummertoevoeging.
    , null                       as "adres_aanduiding_bij_nummer"        -- zib's Patient definieert AanduidingBijNummerCodes: https://zibs.nl/wiki/Patient(NL)#AanduidingBijNummerCodelijst
    , ifct_postcode_b            as "adres_postcode"                     -- AdresGegevens_postcode.
    , ifct_plaats_b              as "adres_woonplaats"                   -- AdresGegevens_woonplaats.
