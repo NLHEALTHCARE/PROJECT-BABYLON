@@ -12,8 +12,8 @@ select
         , ifev_rdn_omschrijving         as "reden_van_verrichting"              -- zib's definieert een reden voor de uitvoering van de verrichting.
         , null                          as "verrichting_type"                   -- zib's OverdrachtVerrichting definieert VerrichtingTypeCodes: https://zibs.nl/wiki/OverdrachtVerrichting(NL)#VerrichtingTypeCodelijst
         , null                          as "product"                            -- zib's definieert een product dat tijdens de verrichting is geplaatst.
-        , null /*ifev_lokatie*/         as "zorgaanbieder"                      -- zib's definieert de locatie/zorgaanbieder waar de verrichting heeft plasst gevonden.
-        , null /*ifev_personen*/        as "uitgevoerd_door"                    -- zib's definieert een zorgverlener die de verrichting heeft uitgevoerd.
+        , ifev_vst_naam                 as "zorgaanbieder"                      -- zib's definieert de locatie/zorgaanbieder waar de verrichting heeft plasst gevonden.
+        , ifev_mdw_naam                 as "uitgevoerd_door"                    -- zib's definieert een zorgverlener die de verrichting heeft uitgevoerd.
         , null                          as "aangevraagd_door"                   -- zib's definieert een zorgverlener die de verrichting heeft aangevraagd.
         , null                          as "is_uitgevoerd"                      -- Is de verrichting uitgevoerd. (FHIR - notDone)
         , null                          as "reden_niet_uitgevoerd"              -- De reden waarom de verrichting niet is uitgevoerd. (FHIR - notDoneReason)

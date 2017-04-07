@@ -1,4 +1,4 @@
--- Script hoort bij de Zorginformatiebouwsteen Contactpersoon. (https://zibs.nl/wiki/Contactpersoon(NL))
+-- Script hoort bij de Zorginformatiebouwsteen (zib) Contactpersoon. (https://zibs.nl/wiki/Contactpersoon(NL))
 -- De FHIR resource RelatedPerson is hier deels voor gebruikt. (https://www.hl7.org/fhir/relatedperson.html#resource)
 -- Voor bepaalde CodeLijsten wordt gerefereerd naar de zib Patient, omdat deze CodeLijsten niet in de zib Contactpersoon zijn beschreven. (https://zibs.nl/wiki/Patient(NL))
 
@@ -11,22 +11,22 @@ select
         , ifct_achternaam_partner       as "name_familiy"                       -- Geslachtsnaam_Achternaam van de contactpersoon.
         , ifct_tussenvoegsels_partner   as "name_given"                         -- Tussenvoegsels van de contactpersoon.
         , null                          as "telefoon"                           -- Telefoonnummer van de contactpersoon.
-        , null                          as "nummer_soort"                       -- zib's definieert NummerSoortCodes: https://zibs.nl/wiki/Patient(NL)#NummerSoortCodelijst
+        , null                          as "nummer_soort"                       -- zib definieert NummerSoortCodes: https://zibs.nl/wiki/Patient(NL)#NummerSoortCodelijst
         , null                          as "mail_adres"                         -- EmailAdres van de contactpersoon.
-        , null                          as "mail_soort"                         -- Type EmailAdres van de contactpersoon.
+        , null                          as "mail_soort"                         -- zib definieert EmailSoortCodes: https://zibs.nl/wiki/Patient(NL)#EmailSoortCodelijst
         , null                          as "roepnaam"                           -- Roepnaam van de contactpersoon.
         , null                          as "adres_straatnaam"                   -- AdresGegevens_straat van de contactpersoon.
-        , null                          as "adres_straatnaam"                   -- AdresGegevens_huisnummer  van de contactpersoon.
-        , null                          as "adres_huisnummer_letter"            -- zib's definieert bij AdresGegevens een Huisnummerletter.
-        , null                          as "adres_huisnummer_toevoeging"        -- zib's definieert bij AdresGegevens een Huisnummertoevoeging.
-        , null                          as "adres_aanduiding_bij_nummer"        -- zib's definieert AanduidingBijNummerCodes: https://zibs.nl/wiki/Patient(NL)#AanduidingBijNummerCodelijst
+        , null                          as "adres_huisnummer"                   -- AdresGegevens_huisnummer  van de contactpersoon.
+        , null                          as "adres_huisnummer_letter"            -- zib definieert bij AdresGegevens een Huisnummerletter.
+        , null                          as "adres_huisnummer_toevoeging"        -- zib definieert bij AdresGegevens een Huisnummertoevoeging.
+        , null                          as "adres_aanduiding_bij_nummer"        -- zib definieert AanduidingBijNummerCodes: https://zibs.nl/wiki/Patient(NL)#AanduidingBijNummerCodelijst
         , null                          as "adres_postcode"                     -- AdresGegevens_postcode  van de contactpersoon.
         , null                          as "adres_woonplaats"                   -- AdresGegevens_woonplaats  van de contactpersoon.
-        , null                          as "adres_gemeente"                     -- zib's definieert bij AdresGegevens een Gemeente.
-        , null                          as "adres_land"                         -- zib's definieert bij AdresGegevens twee verschillende LandCodes: https://zibs.nl/wiki/Patient(NL)#LandGBACodelijst
-        , null                          as "address_extra_info"                 -- zib's definieert bij AdresGegevens AdditioneleInformatie.
-        , null                          as "rol_contactpersoon"                 -- zib's Contactpersoon definieert RolCodes: https://zibs.nl/wiki/Contactpersoon(NL)#RolCodelijst
-        , null                          as "relatie"                            -- zib's Contactpersoon definieert RelatieCodes: https://zibs.nl/wiki/Contactpersoon(NL)#RelatieCodelijst
+        , null                          as "adres_gemeente"                     -- zib definieert bij AdresGegevens een Gemeente.
+        , null                          as "adres_land"                         -- zib definieert bij AdresGegevens twee verschillende LandCodes: https://zibs.nl/wiki/Patient(NL)#LandGBACodelijst
+        , null                          as "address_extra_info"                 -- zib definieert bij AdresGegevens AdditioneleInformatie.
+        , null                          as "rol_contactpersoon"                 -- zib Contactpersoon definieert RolCodes: https://zibs.nl/wiki/Contactpersoon(NL)#RolCodelijst
+        , null                          as "relatie"                            -- zib Contactpersoon definieert RelatieCodes: https://zibs.nl/wiki/Contactpersoon(NL)#RelatieCodelijst
 
 from mtdx.v_intf_contact
 where ifct_soort = 9 --AND ifct_bsn = ""                                          -- Filteren op patiënten en een specifieke patiënt selecteren voor de contactpersoon
