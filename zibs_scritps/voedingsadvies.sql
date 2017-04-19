@@ -11,5 +11,6 @@ select
         , null                  as "allergie"                   -- Bestaande allergieen die de patient heeft. (FHIR - allergyIntolerance)
         , null                  as "status_voedingsadvies"      -- Wat is de status van het huidige voedingsadvies, is het nog een concept, wordt deze al gebruikt of is deze al verouderd. (FHIR - status)
 
-from mtdx.v_intf_contact ct
-where ct.ifct_soort = 9
+from mtdx.v_intf_kenmerk ck
+join mtdx.v_intf_contact ct on ck.ifck_ct_id = ct.ifct_id
+where ck.ifck_kg_omschrijving LIKE 'Allergie%' ct.ifct_soort = 9

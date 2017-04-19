@@ -9,7 +9,7 @@ with medewerker_mail_adres as
                 distinct ifmb_ifmw_id 
                 , ifmb_waarde
         from mtdx.v_intf_bereikbaar_mdw
-        where ifmb_ifbs_omschrijving LIKE '%Mail%'
+        where regexp_like(ifmb_waarde, '^([a-z]+\.?[a-z]*\.?\-?[a-z]*\.?[a-z]*)@([a-z]+\-?[a-z]*)\.([a-z]{2,3})$') AND (ifmb_ifbs_code = 201 OR ifmb_ifbs_code = 202 OR ifmb_ifbs_code = 203 OR ifmb_ifbs_code = 204)
      )
      , medewerker_telefoon as
        (
@@ -23,10 +23,10 @@ with medewerker_mail_adres as
         )
 
 select
-      mw.ifmw_agb                       as "zorgerverlener_identificatienr"             -- zib definieert een Zorgindentificatienummer kan via AGB of UZI.
+      mw.ifmw_id /*mw.ifmw_bsn*/        as "zorgerverlener_identificatienr"             -- zib definieert een Zorgindentificatienummer kan via AGB of UZI.
       , null                            as "in_gebruik"                                 -- Is de zorgverlener van dit dossier nog actief. (FHIR - active)
-      , null                            as "naam_gebruik"                               -- zib Patient definieert Naamgebruikcodes https://zibs.nl/wiki/Patient(NL)#NaamgebruikCodelijst
-      , null                            as "name_text"                                  -- Volledige naam. (FHIR - name)
+      , 'https://zibs.nl/wiki/Patient(NL)#NaamgebruikCodelijst'                            as "naam_gebruik"                               -- zib Patient definieert Naamgebruikcodes https://zibs.nl/wiki/Patient(NL)#NaamgebruikCodelijst
+      , mw.ifmw_naam                    as "name_text"                                  -- Volledige naam. (FHIR - name)
       , mw.ifmw_voornaam                as "naam_voornaam"                              -- Voornaam.
       , mw.ifmw_voorletters             as "naam_initialen"                             -- Initialen.
       , mw.ifmw_achternaam              as "name_familiy"                               -- Geslachtsnaam_Achternaam.
@@ -44,11 +44,11 @@ select
       , mw.ifmw_lnd_omschrijving_pr     as "adres_land"                                 -- zib definieert bij AdresGegevens twee verschillende LandCodes: https://zibs.nl/wiki/Patient(NL)#LandGBACodelijst
       , null                            as "address_extra_info"                         -- zib definieert bij AdresGegevens AdditioneleInformatie.
       , mwt.ifmb_waarde                 as "telefoon"                                   -- zib definieert een Telefoonnummer.
-      , null                            as "nummer_soort"                               -- zib definieert NummerSoortCodes: https://zibs.nl/wiki/Patient(NL)#NummerSoortCodelijst
+      , 'https://zibs.nl/wiki/Patient(NL)#NummerSoortCodelijst'                            as "nummer_soort"                               -- zib definieert NummerSoortCodes: https://zibs.nl/wiki/Patient(NL)#NummerSoortCodelijst
       , mwma.ifmb_waarde                as "mail_adres"                                 -- zib definieert een EmailAdres.
-      , null                            as "mail_soort"                                 -- zib definieert EmailSoortCodes: https://zibs.nl/wiki/Patient(NL)#EmailSoortCodelijst
+      , 'https://zibs.nl/wiki/Patient(NL)#EmailSoortCodelijst'                            as "mail_soort"                                 -- zib definieert EmailSoortCodes: https://zibs.nl/wiki/Patient(NL)#EmailSoortCodelijst
       , mw.ifmw_vst_naam                as "zorgaanbieder"                              -- zib definieert de organisatie waar de zorgverlener werkzaam is.
-      , null                            as "zorgverlener_rol"                           -- zib Zorgverlener definieert ZorgverlenerRolCodes: https://zibs.nl/wiki/Zorgverlener(NL)#ZorgverlenerRolCodelijst
+      , 'https://zibs.nl/wiki/Zorgverlener(NL)#ZorgverlenerRolCodelijst'                            as "zorgverlener_rol"                           -- zib Zorgverlener definieert ZorgverlenerRolCodes: https://zibs.nl/wiki/Zorgverlener(NL)#ZorgverlenerRolCodelijst
       , mw.ifmw_geslacht                as "geslacht"                                   -- Het geslacht van de zorgverlener. (FHIR - gender)
   
 from mtdx.v_intf_medewerker mw

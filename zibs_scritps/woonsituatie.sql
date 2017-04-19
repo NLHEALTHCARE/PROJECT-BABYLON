@@ -2,7 +2,7 @@
 -- De FHIR resource Patient is hier deels voor gebruikt. (https://www.hl7.org/fhir/patient.html#resource)
 
 select
-        null                            as "woning_type"                        -- zib Woonsituatie definieert WoningTypeCodes: https://zibs.nl/wiki/Woonsituatie(NL)#WoningTypeCodelijst
+        'https://zibs.nl/wiki/Woonsituatie(NL)#WoningTypeCodelijst'                            as "woning_type"                        -- zib Woonsituatie definieert WoningTypeCodes: https://zibs.nl/wiki/Woonsituatie(NL)#WoningTypeCodelijst
         , null                          as "toelichting"                        -- zib definieert in vrije tekst problemen of details rondom de woonsituatie van de patient die relevant kunnen zijn.
         ,ct.ifct_bsn                    as "patient_id"                         -- Om welke patient gaat het. (FHIR - identifier)
         , ct.ifct_straat_b              as "adres_straatnaam"                   -- AdresGegevens_straat.

@@ -3,7 +3,7 @@
 
 select
         ct.ifct_bsn                     as "patient_id"                         -- Om welke patient gaat het. (FHIR - patient)
-        , null                          as "wilsverklaring_type"                -- zib Wilsverklaring definieert WilsverklaringTypeCodes: https://zibs.nl/wiki/Wilsverklaring(NL)#WilsverklaringTypeCodelijst
+        , 'https://zibs.nl/wiki/Wilsverklaring(NL)#WilsverklaringTypeCodelijst'                          as "wilsverklaring_type"                -- zib Wilsverklaring definieert WilsverklaringTypeCodes: https://zibs.nl/wiki/Wilsverklaring(NL)#WilsverklaringTypeCodelijst
         , null                          as "wilsverklaring_status"              -- De status van de wilsverklaring. (FHIR - status)
         , null                          as "wilsverklaring_datum"               -- zib definieert de datum waarop de wilsverklaring is vastgesteld.
         , null                          as "aandoening"                         -- zib definieert het probleem waar de wilsverklaring betrekking op heeft.
