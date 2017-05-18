@@ -7,21 +7,49 @@ with patient_mail_adres as
         select
                 distinct ifbr_waarde
                 , ifbr_ifct_id
-                , ifbr_ifbs_omschrijving
+                , case
+                        -- Wanneer "ifbr_ifbs_code" 201 is, dan de omschrijving van e-mailadres volgens de zib "Patient".
+                        when ifbr_ifbs_code = 201
+                        then 'Privé e-mailadres'
+                        
+                        -- Wanneer "ifbr_ifbs_code" 203 is, dan de omschrijving van directe e-mailadres volgens de zib "Patient".
+                        when ifbr_ifbs_code = 203
+                        then 'Zakelijk e-mailadres'
+                   end as omschrijving
         
         from mtdx.v_intf_bereikbaar
         where regexp_like(ifbr_waarde, '^([0-9]*[a-z]*\.?\_?\-?[0-9]?[a-z]*\.?\-?\_?[0-9]?[a-z]*\.?[a-z]*[0-9]*)@([a-z]+\-?[a-z]*)\.([a-z]{2,3})$') AND (ifbr_ifbs_code = 201 OR ifbr_ifbs_code = 203)
      )
      , patient_telefoon as
        (
-          -- // Uit de tabel v_intf_bereikbaar alle telefoonnummers selecteren. Normale Regex: (\+?\d{2,4}?\-?\d{7,10}).
+          -- Uit de tabel v_intf_bereikbaar alle telefoonnummers selecteren. Normale Regex: (\+?\d{2,4}?\-?\d{7,10}).
           select
-                 distinct ifbr_waarde
+                 regexp_replace(regexp_replace(lower(ifbr_waarde),'[^0-9]+',''),'[^0-9]+','') as "waarde"
                  , ifbr_ifct_id
-                 , ifbr_ifbs_omschrijving
+                 , case
+                        -- Wanneer "ifbr_ifbs_code" ... is, dan de omschrijving van mobiele nummer volgens de zib "Patient".
+                        when ifbr_ifbs_code = 151
+                        then 'Mobiel telefoonnummer'
+                        
+                        -- Wanneer "ifbr_ifbs_code" 153 is, dan de omschrijving van ... volgens de zib "Patient".
+                        when ifbr_ifbs_code = 153
+                        then 'Zakelijk telefoonnummer'
+                        
+                        -- Wanneer "ifbr_ifbs_code" 160 is, dan de omschrijving van telefoonnummer volgens de zib "Patient".
+                        when ifbr_ifbs_code = 160
+                        then 'Telefoonnummer thuis'
+                        
+                        -- Wanneer "ifbr_ifbs_code" 150 is, dan de omschrijving van mobiele nummer volgens de zib "Patient".
+                        when ifbr_ifbs_code = 150
+                        then 'Mobiel telefoonnummer'
+                        
+                        -- Wanneer "ifbr_ifbs_code" 110 is, dan de omschrijving van privé nummer volgens de zib "Patient".
+                        when ifbr_ifbs_code = 110
+                        then 'Telefoonnummer thuis'
+                   end as omschrijving
         
           from mtdx.v_intf_bereikbaar
-          where regexp_like(ifbr_waarde, '^(\+?[0-9]{2,4}?\-?[0-9]{7,10})$') AND (ifbr_ifbs_code = 151 OR ifbr_ifbs_code = 153 OR ifbr_ifbs_code = 160 OR ifbr_ifbs_code = 150 OR ifbr_ifbs_code = 110)
+          where ifbr_ifbs_code = 151 OR ifbr_ifbs_code = 153 OR ifbr_ifbs_code = 160 OR ifbr_ifbs_code = 150 OR ifbr_ifbs_code = 110
         )
      , overleden as
         (
@@ -41,23 +69,24 @@ with patient_mail_adres as
         )
 
 select
-        distinct ct.ifct_bsn            as "identifier"                         -- PatientIdentificatienummer. (FHIR - identifier)
+        distinct ct.ifct_bsn            as "identifier"                         -- PatientIdentificatienummer. (FHIR - identifier). OID: http://art-decor.org/decor/services/RetrieveOID?id=2.16.840.1.113883.2.4.6.3&language=nl-NL
         , null                          as "in_gebruik"                         -- Is patientenrecord in gebruik. (FHIR - active)
-        , pt.ifbr_waarde                as "telefoon"                           -- zib Patient definieert een Telefoonnummer.
-        , 'https://zibs.nl/wiki/Patient(NL)#NummerSoortCodelijst'                          as "nummer_soort"                       -- zib Patient definieert NummerSoortCodes: https://zibs.nl/wiki/Patient(NL)#NummerSoortCodelijst
+        , pt."waarde"                   as "telefoon"                           -- zib Patient definieert een Telefoonnummer.
+        , pt.omschrijving               as "nummer_soort"                       -- zib Patient definieert NummerSoortCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.3
         , pma.ifbr_waarde               as "mail_adres"                         -- zib Patient definieert een EmailAdres.
-        , 'https://zibs.nl/wiki/Patient(NL)#EmailSoortCodelijst'                          as "mail_soort"                         -- zib Patient definieert EmailSoortCodes: https://zibs.nl/wiki/Patient(NL)#EmailSoortCodelijst.
+        , pma.omschrijving              as "mail_soort"                         -- zib Patient definieert EmailSoortCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.4
         , ct.ifct_straat_b              as "adres_straatnaam"                   -- AdresGegevens_straat.
         , ct.ifct_huisnr_b              as "adres_huisnummer"                   -- AdresGegevens_huisnummer.
         , null                          as "adres_huisnummer_letter"            -- zib Patient definieert bij AdresGegevens een Huisnummerletter.
         , ct.ifct_gebouw_b              as "adres_huisnummer_toevoeging"        -- zib Patient definieert bij AdresGegevens een Huisnummertoevoeging.
-        , null                          as "adres_aanduiding_bij_nummer"        -- zib Patient definieert AanduidingBijNummerCodes: https://zibs.nl/wiki/Patient(NL)#AanduidingBijNummerCodelijst
+        , null                          as "adres_aanduiding_bij_nummer"        -- zib Patient definieert AanduidingBijNummerCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.7
         , ct.ifct_postcode_b            as "adres_postcode"                     -- AdresGegevens_postcode.
         , ct.ifct_plaats_b              as "adres_woonplaats"                   -- AdresGegevens_woonplaats.
         , null                          as "adres_gemeente"                     -- zib Patient definieert bij AdresGegevens een Gemeente.
-        , ct.ifct_lnd_omschrijving_b    as "adres_land"                         -- zib Patient definieert bij AdresGegevens twee verschillende LandCodes: https://zibs.nl/wiki/Patient(NL)#LandGBACodelijst
+        , ct.ifct_lnd_code_b            as "adres_land"                         -- zib Patient definieert bij AdresGegevens twee verschillende LandCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.9 en http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.8
         , null                          as "address_extra_info"                 -- zib Patient definieert bij AdresGegevens AdditioneleInformatie.
-        , 'https://zibs.nl/wiki/Patient(NL)#NaamgebruikCodelijst'                          as "naam_gebruik"                       -- zib Patient definieert Naamgebruikcodes https://zibs.nl/wiki/Patient(NL)#NaamgebruikCodelijst
+        , null                          as "adres_soort"                        -- zib Patient definieert bij AdresSoort: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.2
+        , null                          as "naam_gebruik"                       -- zib Patient definieert Naamgebruikcodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.6
         , null                          as "name_text"                          -- Volledige naam. (FHIR - name)
         , ct.ifct_voornaam              as "naam_voornaam"                      -- Voornaam.
         , ct.ifct_voorletters           as "naam_initialen"                     -- Initialen.

@@ -5,10 +5,10 @@ select
         null                            as "identifier"                         -- id van de BehandelAanwijzing (FHIR - identifier)
         , ct.ifct_bsn                   as "patient_identificatienummer"        -- Om welke patient gaat het. (FHIR - subject)
         , null                          as "geverifieerd"                       -- zib's BehandelAanwijzing definieert bij Verificatie of de behandelaanwijzing is geverifieerd.
-        , 'https://zibs.nl/wiki/BehandelAanwijzing(NL)#GeverifieerdBijCodelijst'                          as "geverifieerd_bij"                   -- zib's BehandelAanwijzing definieert GeverifieerdBijCodes: https://zibs.nl/wiki/BehandelAanwijzing(NL)#GeverifieerdBijCodelijst
+        , null                          as "geverifieerd_bij"                   -- zib's BehandelAanwijzing definieert GeverifieerdBijCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.2.4
         , null                          as "verificatie_datum"                  -- zib's BehandelAanwijzing definieert bij Verificatie op welke datum de verificatie heeft plaats gevonden.
-        , 'https://zibs.nl/wiki/BehandelAanwijzing(NL)#BehandelingCodelijst'            as "behandeling"                        -- zib's BehandelAanwijzing definieert BehandelingCodes: https://zibs.nl/wiki/BehandelAanwijzing(NL)#BehandelingCodelijst
-        , 'https://zibs.nl/wiki/BehandelAanwijzing(NL)#BehandelingToegestaanCodelijst'                          as "behandeling_toegestaan"             -- zib's BehandelAanwijzing definieert BehandelingToegestaanCodes: https://zibs.nl/wiki/BehandelAanwijzing(NL)#BehandelingToegestaanCodelijst
+        , null                          as "behandeling"                        -- zib's BehandelAanwijzing definieert BehandelingCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.2.1
+        , null                          as "behandeling_toegestaan"             -- zib's BehandelAanwijzing definieert BehandelingToegestaanCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.2.2
         , null                          as "beperkingen_behandeling"            -- zib's BehandelAanwijzing definieert beperkingen bij een behandeling.
         , null                          as "datum_begin"                        -- zib's BehandelAanwijzing definieert een begin datum van de BehandelAanwijzing.
         , null                          as "datum_eind"                         -- zib's BehandelAanwijzing definieert een eind datum van de BehandelAanwijzing.

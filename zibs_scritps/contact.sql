@@ -2,7 +2,7 @@
 -- De FHIR resources Encounter zijn hier deels voor gebruikt. (https://www.hl7.org/fhir/encounter.html#resource)
 
 select
-        'https://zibs.nl/wiki/Contact(NL)#ContactTypeCodelijst'                                    as "contact_type"               -- zib's Contact definieert ContactTypeCodes: https://zibs.nl/wiki/Contact(NL)#ContactTypeCodelijst
+        null                                            as "contact_type"               -- zib's Contact definieert ContactTypeCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.15.1.1
         , ar.ifev_eig_naam                              as "zorgverlener"               -- zib's defineert de zorgverlener waarmee contact heeft plaats gevonden.
         , ar.ifev_vst_naam                              as "zorgaanbieder"              -- zib's definieert de locatie waar het contact heeft plaats gevonden.
         , ar.ifev_datum || ' ' || ar.ifev_starttijd     as "begin_datum_tijd"           -- zib's definieert begin van de datum en de tijd van het contact dat heeft plaast gevonden.

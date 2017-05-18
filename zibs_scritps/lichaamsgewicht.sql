@@ -7,7 +7,7 @@ select
         , ck.ifck_info_value2           as "gewicht_waarde"             -- zib definieert het lichaamsgewicht van de patient in kg. Bij pasgeborenen onder 3 kg wordt het gewicht veelal in grammen uitgedrukt. Dit concept wordt ook gebruikt lichaamsgewicht te schatten, als het niet mogelijk is om het exacte lichaamsgewicht te meten.
         , null                          as "toelichting"                -- zib definieert een toelichting over de gewichtsmeting zoals problemen of factoren die invloed hebben op de gewichtsmeting.
         , ck.ifck_startdatum            as "gewicht_datum_tijd"         -- zib definieert de datum en eventuele tijdstip waarop het gewicht is gemeten of geschat.
-        , 'https://zibs.nl/wiki/Lichaamsgewicht(NL)#KledingCodelijst'                          as "kleding"                    -- zib Lichaamsgewicht definieert KledingCodes: https://zibs.nl/wiki/Lichaamsgewicht(NL)#KledingCodelijst
+        , null                          as "kleding"                    -- zib Lichaamsgewicht definieert KledingCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.12.1.1
 
 from mtdx.v_intf_kenmerk ck
 join mtdx.v_intf_contact ct on ck.ifck_ct_id = ct.ifct_id

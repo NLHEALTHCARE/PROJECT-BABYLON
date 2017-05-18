@@ -8,9 +8,9 @@ select
         , to_char(st.ifst_einddatum,'DD-MM-YYYY')       as "verrichting_eind_datum"             -- zib's definieert een eind datum van de verrichting.
         , to_char(st.ifst_startdatum,'HH24:MI:SS')      as "verrichting_starttijd"              -- zib's definieert een starttijd van de verrichting.
         , to_char(st.ifst_einddatum,'HH24:MI:SS')       as "verrchting_eindtijd"                -- zib's definieert een eindtijd van de verrichting.
-        , 'https://zibs.nl/wiki/OverdrachtVerrichting(NL)#VerrichtingAnatomischeLocatieCodelijst'                          as "anatomische_locatie"                -- zib's OverrdrachtVerrichting definieert VerrichtingAnatomischeLocatieCodes: https://zibs.nl/wiki/OverdrachtVerrichting(NL)#VerrichtingAnatomischeLocatieCodelijst
+        , null                                          as "anatomische_locatie"                -- zib's OverrdrachtVerrichting definieert VerrichtingAnatomischeLocatieCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.14.1.1
         , st.ifst_diag_omschrijving                     as "reden_van_verrichting"              -- zib's definieert een reden voor de uitvoering van de verrichting.
-        , 'https://zibs.nl/wiki/OverdrachtVerrichting(NL)#VerrichtingTypeCodelijst'                          as "verrichting_type"                   -- zib's OverdrachtVerrichting definieert VerrichtingTypeCodes: https://zibs.nl/wiki/OverdrachtVerrichting(NL)#VerrichtingTypeCodelijst
+        , null                                          as "verrichting_type"                   -- zib's OverdrachtVerrichting definieert VerrichtingTypeCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.14.1.2
         , null                                          as "product"                            -- zib's definieert een product dat tijdens de verrichting is geplaatst.
         , st.ifst_vest_naam                             as "zorgaanbieder"                      -- zib's definieert de locatie/zorgaanbieder waar de verrichting heeft plasst gevonden.
         , st.ifst_ba_naam                               as "uitgevoerd_door"                    -- zib's definieert een zorgverlener die de verrichting heeft uitgevoerd.

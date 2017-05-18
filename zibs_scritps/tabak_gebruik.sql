@@ -4,8 +4,8 @@
 select
         ifct_bsn                as "patient_id"                 -- Id om de patient te herkennen. (FHIR - Subject)
         , null                  as "toelichting"                -- zib definieert toelichting/opmerkingen over het tabak gebruik.
-        , null                  as "soort_tabak_gebruik"        -- zib TabakGebruik definieert SoortTabakGebruikCodes: https://zibs.nl/wiki/TabakGebruik(NL)#SoortTabakGebruikCodelijst
-        , null                  as "status_tabak_gebruik"       -- zib TabakGebruik definieert TabakGebruikStatusCodes: https://zibs.nl/wiki/TabakGebruik(NL)#TabakGebruikStatusCodelijst
+        , null                  as "soort_tabak_gebruik"        -- zib TabakGebruik definieert SoortTabakGebruikCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.7.2.3
+        , null                  as "status_tabak_gebruik"       -- zib TabakGebruik definieert TabakGebruikStatusCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.7.2.2
         , null                  as "start_datum"                -- zib definieert de start datum van het roken.
         , null                  as "stop_datum"                 -- zib definieert de datum waarop gestopt is met roken.
         , null                  as "hoeveelheid"                -- zib definieert het aantal sigaretten, sigaren of gram shag per dag, week, maand of jaar.

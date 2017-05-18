@@ -7,29 +7,31 @@ select
         , ct.ifct_achternaam            as "patient_naam"                       -- De mogelijke patient die informatie over de allergie heeft gegegeven. (FHIR - asserter)
         , mw.ifmw_naam                  as "zorgverlener_naam"                  -- De mogelijke zorgverlener die informatie over de allergie heeft gegegeven. (FHIR - asserter)
         , ct.ifct_achternaam_partner    as "contactpersoon"                     -- De mogelijke contactpersoon die informatie over de allergie heeft gegegeven. (FHIR - asserter)
-        , 'https://zibs.nl/wiki/AllergieIntolerantie(NL)#VeroorzakendeStofAllergeneStoffenCodelijst'                          as "veroorzakende_stof"                 /* zib AllergieIntolerantie definieert verschillende VeroorzakendeStofCodes:
-                                                                                        https://zibs.nl/wiki/AllergieIntolerantie(NL)#VeroorzakendeStofAllergeneStoffenCodelijst,
-                                                                                        https://zibs.nl/wiki/AllergieIntolerantie(NL)#VeroorzakendeStofHPKCodelijst,
-                                                                                        https://zibs.nl/wiki/AllergieIntolerantie(NL)#VeroorzakendeStofSNKCodelijst,
-                                                                                        https://zibs.nl/wiki/AllergieIntolerantie(NL)#VeroorzakendeStofSSKCodelijst,
-                                                                                        https://zibs.nl/wiki/AllergieIntolerantie(NL)#VeroorzakendeStofThesaurus122Codelijst */
-        , 'https://zibs.nl/wiki/AllergieIntolerantie(NL)#AllergieCategorieCodelijst'                          as "allergie_categorie"                 -- zib AllergieIntolerantie definieert AllergieCategorieCodes: https://zibs.nl/wiki/AllergieIntolerantie(NL)#AllergieCategorieCodelijst
-        , 'https://zibs.nl/wiki/AllergieIntolerantie(NL)#AllergieStatusCodelijst'                          as "allergie_status"                    -- zib AllergieIntolerantie definieert AllergieStatusCodes: https://zibs.nl/wiki/AllergieIntolerantie(NL)#AllergieStatusCodelijst
+        , null                          as "veroorzakende_stof"                 /* zib AllergieIntolerantie definieert verschillende VeroorzakendeStofCodes: https://zibs.nl/wiki/AllergieIntolerantie(NL)#VeroorzakendeStofAllergeneStoffenCodelijst
+                                                                                   http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.17,
+                                                                                   http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.19,
+                                                                                   http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.14,
+                                                                                   http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.13,
+                                                                                   http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.15
+                                                                                */
+        , null                          as "allergie_categorie"                 -- zib AllergieIntolerantie definieert AllergieCategorieCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.2
+        , null                          as "allergie_status"                    -- zib AllergieIntolerantie definieert AllergieStatusCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.3
         , null                          as "begin_datum_tijd"                   -- zib definieert de datum en tijd waarop de allergie is vastgesteld, dit kan exacte datum en tijd zijn of een globaleaanduiding van de datum.
-        , 'https://zibs.nl/wiki/AllergieIntolerantie(NL)#MateVanKritiekZijnCodelijst'                          as "mate_van_kritiek_zijn"              -- zib AllergieIntolerantie definieert MateVanKritiekZijnCodes: https://zibs.nl/wiki/AllergieIntolerantie(NL)#MateVanKritiekZijnCodelijst
+        , null                          as "mate_van_kritiek_zijn"              -- zib AllergieIntolerantie definieert MateVanKritiekZijnCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.4
         , null                          as "laatste_reactie_datum_tijd"         -- zib definieert de datum en tijd waarop de laatste keer een reactie heeft plaats gevonden.
         , null                          as "toelichting"                        -- zib definieert een toelichting over de allergie die niet in een van de andere velden kan worden ingevuld.
-        , 'https://zibs.nl/wiki/AllergieIntolerantie(NL)#SymptoomCodelijst'                          as "symptoom"                           -- zib AllergieIntolerantie definieert SymptoomCodes: https://zibs.nl/wiki/AllergieIntolerantie(NL)#SymptoomCodelijst
+        , null                          as "symptoom"                           -- zib AllergieIntolerantie definieert SymptoomCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.5
         , null                          as "specifieke_stof"                    /* zib AllergieIntolerantie definieert verschillende SpecifiekeStofCodes:
-                                                                                        https://zibs.nl/wiki/AllergieIntolerantie(NL)#SpecifiekeStofAllergeneStoffenCodelijst,
-                                                                                        https://zibs.nl/wiki/AllergieIntolerantie(NL)#SpecifiekeStofHPKCodelijst,
-                                                                                        https://zibs.nl/wiki/AllergieIntolerantie(NL)#SpecifiekeStofSNKCodelijst,
-                                                                                        https://zibs.nl/wiki/AllergieIntolerantie(NL)#SpecifiekeStofSSKCodelijst,
-                                                                                        https://zibs.nl/wiki/AllergieIntolerantie(NL)#SpecifiekeStofThesaurus122Codelijst */
-        , 'https://zibs.nl/wiki/AllergieIntolerantie(NL)#WaarschijnlijkheidCodelijst'                          as "waarschijnlijkheid"                 -- zib AllergieIntolerantie definieert WaarschijnlijkheidCodes: https://zibs.nl/wiki/AllergieIntolerantie(NL)#WaarschijnlijkheidCodelijst
+                                                                                   http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.16,
+                                                                                   http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.18,
+                                                                                   http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.10,
+                                                                                   http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.9,
+                                                                                   http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.11
+                                                                                */
+        , null                          as "waarschijnlijkheid"                 -- zib AllergieIntolerantie definieert WaarschijnlijkheidCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.8
         , null                          as "reactie_beschrijving"               -- zib definieert een tekstuele beschrijving van de reactie.
-        , 'https://zibs.nl/wiki/AllergieIntolerantie(NL)#ErnstCodelijst'                          as "ernst"                              -- zib AllergieIntolerantie definieert ErnstCodes: https://zibs.nl/wiki/AllergieIntolerantie(NL)#ErnstCodelijst
-        , 'https://zibs.nl/wiki/AllergieIntolerantie(NL)#WijzeVanBlootstellingCodelijst'                          as "wijze_van_blootstelling"            -- zib AllergieIntolerantie definieert WijzeVanBlootstellingCodes: https://zibs.nl/wiki/AllergieIntolerantie(NL)#WijzeVanBlootstellingCodelijst
+        , null                          as "ernst"                              -- zib AllergieIntolerantie definieert ErnstCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.6
+        , null                          as "wijze_van_blootstelling"            -- zib AllergieIntolerantie definieert WijzeVanBlootstellingCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.8.2.12
         , null                          as "reactie_tijdstip"                   -- zib definieert de datum en de tijd waarop de reactie plaastvond.
         , null                          as "reactie_duur"                       -- zib definieert de tijdsduur van de reactie.
 

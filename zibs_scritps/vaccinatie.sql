@@ -4,13 +4,14 @@
 select
         ct.ifct_bsn             as "patient_id"                         -- Identificatie van de patient die de vaccin heeft gekregen. (FHIR - Patient)
         , null                  as "is_toegediend"                      -- Is de vaccinatie toegediend aan de patient. (FHIR - notGiven)
-        , 'https://zibs.nl/wiki/Vaccinatie(NL)#ProductCodeATCCodelijst'                  as "product_code"                       /* zib Vaccinatie definieert verschillende  ProductCodeCodes:
-                                                                                https://zibs.nl/wiki/Vaccinatie(NL)#ProductCodeATCCodelijst,
-                                                                                https://zibs.nl/wiki/Vaccinatie(NL)#ProductCodeGPKCodelijst,
-                                                                                https://zibs.nl/wiki/Vaccinatie(NL)#ProductCodeGTINCodelijst,
-                                                                                https://zibs.nl/wiki/Vaccinatie(NL)#ProductCodeHPKCodelijst,
-                                                                                https://zibs.nl/wiki/Vaccinatie(NL)#ProductCodePRKCodelijst,
-                                                                                https://zibs.nl/wiki/Vaccinatie(NL)#ProductCodeZICodelijst */
+        , null                  as "product_code"                       /* zib Vaccinatie definieert verschillende  ProductCodeCodes:
+                                                                                http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.11.1.4,
+                                                                                http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.11.1.3,
+                                                                                http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.11.1.5,
+                                                                                http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.11.1.2,
+                                                                                http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.11.1.1,
+                                                                                http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.11.1.6
+                                                                        */
         , null                  as "dosis"                              -- zib definieert de hoeveelheid van het gegegeven product in milimeters.
         , null                  as "vaccinatie_datum"                   -- zib definieert de datum (en eventuele tijd) dat het vaccin is toegediend.
         , null                  as "hervaccinatie_gewenste_datum"       -- zib defineert de datum waarop deze vaccinatie volgens de gegevens van de auteur herhaald zal moeten worden.
