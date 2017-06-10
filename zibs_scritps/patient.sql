@@ -22,7 +22,7 @@ with patient_mail_adres as
      )
      , patient_telefoon as
        (
-          -- Uit de tabel v_intf_bereikbaar alle telefoonnummers selecteren. Normale Regex: (\+?\d{2,4}?\-?\d{7,10}).
+          -- Uit de tabel v_intf_bereikbaar alle telefoonnummers selecteren.
           select
                  regexp_replace(regexp_replace(lower(ifbr_waarde),'[^0-9]+',''),'[^0-9]+','') as "waarde"
                  , ifbr_ifct_id

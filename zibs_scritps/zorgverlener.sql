@@ -6,20 +6,42 @@ with medewerker_mail_adres as
      (
         -- Uit de tabel v_intf_bereikbaar_mdw alleen de mailadressen selecteren.
         select
-                distinct ifmb_ifmw_id 
-                , ifmb_waarde
+                distinct ifmb_waarde
+                , ifmb_ifmw_id
+                , case
+                        -- Wanneer "ifmb_ifbs_code" 201 is, dan de omschrijving van e-mailadres volgens de zib "Patient".
+                        when ifmb_ifbs_code = 201
+                        then 'Zakelijk e-mailadres'
+                        
+                        -- Wanneer "ifmb_ifbs_code" 202 is, dan de omschrijving van directe e-mailadres volgens de zib "Patient".
+                        when ifmb_ifbs_code = 202
+                        then 'Privé e-mailadres'
+                   end as omschrijving
         from mtdx.v_intf_bereikbaar_mdw
-        where regexp_like(ifmb_waarde, '^([a-z]+\.?[a-z]*\.?\-?[a-z]*\.?[a-z]*)@([a-z]+\-?[a-z]*)\.([a-z]{2,3})$') AND (ifmb_ifbs_code = 201 OR ifmb_ifbs_code = 202 OR ifmb_ifbs_code = 203 OR ifmb_ifbs_code = 204)
+        where regexp_like(ifmb_waarde, '^([a-z]+\.?[a-z]*\.?\-?[a-z]*\.?[a-z]*)@([a-z]+\-?[a-z]*)\.([a-z]{2,3})$') AND (ifmb_ifbs_code = 201 OR ifmb_ifbs_code = 202)
      )
      , medewerker_telefoon as
        (
-          -- // Uit de tabel v_intf_bereikbaar_mdw alle telefoonnummers selecteren.
+          -- Uit de tabel v_intf_bereikbaar_mdw alle telefoonnummers selecteren.
           select
-                  ifmb_ifmw_id
-                  , ifmb_waarde
-                  , ifmb_ifbs_omschrijving
+                 regexp_replace(regexp_replace(lower(ifmb_waarde),'[^0-9]+',''),'[^0-9]+','') as "waarde"
+                 , ifmb_ifmw_id
+                 , case
+                        -- Wanneer "ifmb_ifbs_code" ... is, dan de omschrijving van mobiele nummer volgens de zib "Patient".
+                        when ifmb_ifbs_code = 160
+                        then 'Telefoonnummer thuis'
+                        
+                        -- Wanneer "ifmb_ifbs_code" 153 is, dan de omschrijving van ... volgens de zib "Patient".
+                        when ifmb_ifbs_code = 110
+                        then 'Telefoonnummer thuis'
+                        
+                        -- Wanneer "ifmb_ifbs_code" 160 is, dan de omschrijving van telefoonnummer volgens de zib "Patient".
+                        when ifmb_ifbs_code = 151
+                        then 'Mobile Telefoonnummer'
+                   end as omschrijving
+        
           from mtdx.v_intf_bereikbaar_mdw
-          where ifmb_ifbs_omschrijving = 'Telefoon' OR ifmb_ifbs_omschrijving = 'Tel. privé' OR ifmb_ifbs_omschrijving LIKE 'Mobiel privé'
+          where ifmb_ifbs_code = 160 OR ifmb_ifbs_code = 110 OR ifmb_ifbs_code = 1151
         )
 
 select
@@ -43,10 +65,10 @@ select
       , null                            as "adres_gemeente"                             -- zib definieert bij AdresGegevens een Gemeente.
       , mw.ifmw_lnd_omschrijving_pr     as "adres_land"                                 -- zib definieert bij AdresGegevens twee verschillende LandCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.9 en http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.8
       , null                            as "address_extra_info"                         -- zib definieert bij AdresGegevens AdditioneleInformatie.
-      , mwt.ifmb_waarde                 as "telefoon"                                   -- zib definieert een Telefoonnummer.
-      , null                            as "nummer_soort"                               -- zib definieert NummerSoortCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.3
+      , mwt."waarde"                    as "telefoon"                                   -- zib definieert een Telefoonnummer.
+      , mwt.omschrijving                as "nummer_soort"                               -- zib definieert NummerSoortCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.3
       , mwma.ifmb_waarde                as "mail_adres"                                 -- zib definieert een EmailAdres.
-      , null                            as "mail_soort"                                 -- zib definieert EmailSoortCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.4
+      , mwma.omschrijving               as "mail_soort"                                 -- zib definieert EmailSoortCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.0.1.4
       , mw.ifmw_vst_naam                as "zorgaanbieder"                              -- zib definieert de organisatie waar de zorgverlener werkzaam is.
       , null                            as "zorgverlener_rol"                           -- zib Zorgverlener definieert ZorgverlenerRolCodes: http://decor.nictiz.nl/art-decor/decor-valuesets--zib1bbr-?id=2.16.840.1.113883.2.4.3.11.60.40.2.17.1.5
       , mw.ifmw_geslacht                as "geslacht"                                   -- Het geslacht van de zorgverlener. (FHIR - gender)
